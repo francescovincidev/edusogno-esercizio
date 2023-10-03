@@ -11,7 +11,9 @@
 
 <body>
     <?php
+    include __DIR__ . '/layout/navbar.php';
     include __DIR__ . '/layout/background.php'; ?>
+
 
 
 </body>

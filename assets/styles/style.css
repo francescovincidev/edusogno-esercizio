@@ -5,20 +5,44 @@
     box-sizing: border-box;
 }
 
-
-
-.svg-container {
-    height: 100vh;
-    overflow: hidden;
+body {
     background-color: #D9E5F3;
+
 }
+
+/* NAVBAR */
+.navbar {
+    height: 15vh;
+    width: 100vw;
+    border-radius: 0 0 13px 13px;
+    /* border: 0px solid #000; */
+    background: #FFF;
+    box-shadow: 0px 4px 18px -6px #0057FF;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    margin-left: 5%;
+    height: 50%;
+}
+
+
+/* BACKGROUND */
+.svg-container {
+    height: 85vh;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
 
 .vector1 {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100vw;
-    /* Occupa l'intera larghezza dello schermo */
+    width: 100%;
     height: auto;
     z-index: 2;
 }
@@ -27,18 +51,17 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100vw;
-    /* Occupa l'intera larghezza dello schermo */
+    width: 100%;
     height: auto;
     z-index: 1;
 }
+
 
 .vector5 {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100vw;
-
+    width: 100%;
     height: auto;
     z-index: 0;
 }
@@ -47,11 +70,8 @@
     position: absolute;
     bottom: 5vw;
     right: 10vw;
-
     width: auto;
-
     height: 10vw;
-
     z-index: 3;
 
 }
@@ -66,7 +86,7 @@
 
 .big-circle {
     position: absolute;
-    bottom: 50%;
+    bottom: 45%;
     left: -10%;
     width: 20%;
     z-index: 3;
