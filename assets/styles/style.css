@@ -1,0 +1,56 @@
+/* RESET */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+.svg-container {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.vector1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    /* Occupa l'intera larghezza dello schermo */
+    height: auto;
+    z-index: 2;
+}
+
+.vector4 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    /* Occupa l'intera larghezza dello schermo */
+    height: auto;
+    z-index: 1;
+}
+
+.vector5 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+
+    height: auto;
+    z-index: 0;
+}
+
+.spaceship {
+    position: absolute;
+    bottom: 5vw;
+    right: 10vw;
+
+    width: auto;
+
+    height: 10vw;
+
+    z-index: 3;
+
+}
