@@ -10,6 +10,7 @@
 .svg-container {
     height: 100vh;
     overflow: hidden;
+    background-color: #D9E5F3;
 }
 
 .vector1 {
@@ -51,6 +52,23 @@
 
     height: 10vw;
 
+    z-index: 3;
+
+}
+
+.little-circle {
+    position: absolute;
+    bottom: 50%;
+    right: 20px;
+    width: 10%;
+
+}
+
+.big-circle {
+    position: absolute;
+    bottom: 50%;
+    left: -10%;
+    width: 20%;
     z-index: 3;
 
 }

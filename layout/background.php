@@ -20,4 +20,14 @@
         <rect x="53" y="128" width="5" height="56" fill="white" />
         <circle cx="55.5" cy="102.5" r="14.5" fill="#D9E5F3" />
     </svg>
+
+    <svg class="little-circle" xmlns="http://www.w3.org/2000/svg" width="181" height="181" viewBox="0 0 181 181" fill="none">
+        <circle cx="90.5" cy="90.5" r="90.5" fill="white" />
+    </svg>
+
+    <svg class="big-circle" xmlns="http://www.w3.org/2000/svg" width="250" height="250" viewBox="0 0 181 181" fill="none">
+        <circle cx="90.5" cy="90.5" r="90.5" fill="white" />
+    </svg>
+
+
 </div>
