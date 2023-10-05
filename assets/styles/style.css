@@ -7,6 +7,7 @@
 
 body {
     background-color: #D9E5F3;
+    font-family: 'DM Sans', sans-serif;
 
 }
 
@@ -91,4 +92,78 @@ body {
     width: 20%;
     z-index: 3;
 
+}
+
+/* REGISTER */
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+form {
+    width: 30%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 19px;
+    border: 1px solid #134077;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+
+}
+
+label {
+    font-weight: 700;
+    font-size: 0.6rem;
+    padding: 6px 0 2px;
+
+}
+
+
+input:focus {
+    outline: none;
+
+}
+
+
+
+
+input {
+    width: 100%;
+    margin: 12px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 1rem;
+    padding: 2px 0;
+
+}
+
+input::placeholder {
+    color: #CCC;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 11px;
+    border: none;
+    background-color: #0057FF;
+    color: white;
+    text-transform: uppercase;
+    margin: 5% 0;
+}
+
+a {
+    text-align: center;
+    align-self: center;
+    font-size: 0.6rem;
+
+
+}
+
+.bold {
+    font-weight: 700;
 }
