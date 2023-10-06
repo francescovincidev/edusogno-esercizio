@@ -97,6 +97,7 @@ body {
 /* REGISTER */
 .register {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 70vh;
@@ -160,10 +161,13 @@ a {
     text-align: center;
     align-self: center;
     font-size: 0.6rem;
-
-
 }
 
 .bold {
     font-weight: 700;
+}
+
+.errors {
+    color: red;
+    font-size: .7rem;
 }
