@@ -206,3 +206,32 @@ a {
     color: #CCC;
     margin: 6px 0;
 }
+
+/* ADMIN */
+.events-admin {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-admin {
+    border-radius: 19px;
+    border: 1px solid #134077;
+    background: white;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+}
+
+.delete-event {
+    padding: 0;
+    border: none;
+}
+
+.delete-event-btn {
+    background-color: red;
+}
