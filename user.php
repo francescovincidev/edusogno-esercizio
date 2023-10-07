@@ -13,11 +13,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $newUser = new User($name, $surname, $email, $password);
         $errors = $newUser->registerUser_validation($name, $surname, $email, $password);
         $userinfo = null;
+        $events = null;
 
         // SE NON CI SONO ERRORI AVVIENE LA REGISTRAZIONE
         if (empty($errors)) {
 
             $userinfo = $newUser->registerUser();
+            $events = $newUser->getEvents();
         }
 
         // SE DEVE EFFETTUARE L'ACCESSO
@@ -33,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (empty($errors)) {
 
             $userinfo = $newUser->loginUser();
+            $events = $newUser->getEvents();
         }
     }
 }
@@ -65,6 +68,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else if ($userinfo) {
 
             echo 'Ciao ' . $userinfo['name'] . $userinfo['surname'] . ' ecco i tuoi eventi';
+
+            // STAMPIAMO GLI EVENTI
+            foreach ($events as $event) {
+                echo $event['nome_evento'] . $event['data_evento'];
+            }
         }
     } else {
         // SE L'UTENTE PROVA AD ACCEDERE ALLA PAGINA SENZA REGISTRARSI O LOGGARSI

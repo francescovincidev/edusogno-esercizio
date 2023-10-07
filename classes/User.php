@@ -79,4 +79,28 @@ class User extends User_validation
 
         $stmt->close();
     }
+
+    // OTTENIAMO GLI EVENTI
+    public function getEvents()
+    {
+        $db = $this->connect();
+        $events = [];
+
+        $stmt = $db->prepare("SELECT * FROM eventi WHERE FIND_IN_SET(? , attendees) > 0");
+        $stmt->bind_param("s", $this->email);
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+
+            // CICLIAMO PER SALVARE TUTTI  I RISULTATI IN UN ARRAY
+            while ($row = $result->fetch_assoc()) {
+                $events[] = $row;
+            }
+            return $events;
+        } else {
+            return false;
+        }
+
+        $stmt->close();
+    }
 }
