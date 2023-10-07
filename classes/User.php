@@ -25,16 +25,7 @@ class User extends User_validation
     {
 
         $db = $this->connect();
-        // session_start();
 
-        // VALIDAZIONE DATI E MESSAGGI DI ERRORE
-        // $errors = $this->registerUser_validation($this->name, $this->surname, $this->email, $this->password);
-
-        // if (!empty($errors)) {
-        //     http_response_code(400); // Bad Request
-        //     echo json_encode(['errors' => $errors]);
-        //     exit;
-        // }
 
         // hashiamo la password
         $hashedPassword = password_hash($this->password, PASSWORD_DEFAULT);
@@ -44,63 +35,48 @@ class User extends User_validation
         $stmt->bind_param("ssss", $this->name, $this->surname, $this->email, $hashedPassword);
         if ($stmt->execute()) {
             $stmt->close();
-            return true;
-
-            // $_SESSION['user_email'] = $this->email;
+            $userinfo['name'] = $this->name;
+            $userinfo['surname'] = $this->surname;
+            return $userinfo;
         } else {
-            http_response_code(500); // Errore del server
-            echo json_encode(['errors' => 'Errore durante la registrazione']);
+            return false;
         }
         $stmt->close();
     }
 
     //LOGIN
-    // public function loginUser()
-    // {
-    //     $db = $this->connect();
+    public function loginUser()
+    {
+        $db = $this->connect();
+
+        // STMT PER RECUPERAREI DATI PER IL LOGIN
+        $stmt = $db->prepare("SELECT nome, cognome,  password FROM utenti WHERE email = ?");
+        $stmt->bind_param("s", $this->email);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+
+            if ($stmt->num_rows === 1) {
+                $stmt->bind_result($name, $surname, $hashedPassword);
+                $stmt->fetch();
 
 
-    //     // VALIDAZIONE DATI E MESSAGGI DI ERRORE
-    //     $errors = $this->loginUser_validation($this->email, $this->password);
+                if (password_verify($this->password, $hashedPassword)) {
 
+                    $userinfo['name'] = $name;
+                    $userinfo['surname'] = $surname;
+                    return $userinfo;
+                } else {
 
-    //     if (!empty($errors)) {
-    //         http_response_code(400); // Errore negli input
-    //         echo json_encode(['errors' => $errors]);
-    //         exit;
-    //     }
+                    return false;
+                }
+            } else {
 
-    //     $stmt = $db->prepare("SELECT name, surname,  password FROM utenti WHERE email = ?");
-    //     $stmt->bind_param("s", $this->email);
-    //     if ($stmt->execute()) {
-    //         $stmt->store_result();
+                return false;
+            }
+        } else {
+            return false;
+        }
 
-    //         if ($stmt->num_rows === 1) {
-    //             $stmt->bind_result($username, $user_id, $hashedPassword);
-    //             $stmt->fetch();
-
-
-    //             if (password_verify($this->password, $hashedPassword)) {
-
-    //                 http_response_code(201);
-    //                 echo json_encode(['message' => 'Login avvenuto con successo', 'logged_id' => $user_id, 'username' => $username]);
-    //             } else {
-    //                 http_response_code(400); // Errore negli input
-    //                 $errors['inputs'][] = "Accesso non valido, email o password errati";
-
-    //                 echo json_encode(['errors' => $errors]);
-    //             }
-    //         } else {
-    //             http_response_code(400); // Errore negli input
-    //             $errors['inputs'][] = "Accesso non valido, email o password errati";
-
-    //             echo json_encode(['errors' => $errors]);
-    //         }
-    //     } else {
-    //         http_response_code(500); // Errore del server
-    //         echo json_encode(['errors' => 'Errore durante il login']);
-    //     }
-
-    //     $stmt->close();
-    // }
+        $stmt->close();
+    }
 }

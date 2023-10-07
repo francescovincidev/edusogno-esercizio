@@ -72,14 +72,9 @@ class User_validation
     }
 
     //VALIDAZIONE LOGIN
-    protected function loginUser_validation($email, $password)
+    public function loginUser_validation($email, $password)
     {
         $errors = [];
-
-
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors[] = "L'indirizzo email non è valido";
-        }
 
         if (empty($email) || empty($password)) {
             $errors[] = "Tutti i campi sono obbligatori";

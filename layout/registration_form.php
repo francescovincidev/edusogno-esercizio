@@ -1,4 +1,6 @@
-<form action="login.php" method="post">
+<form action="user.php" method="post">
+    <input type="hidden" name="registrazione" value="1">
+
     <!-- NOME -->
     <label for="name">Inserisci il nome</label>
     <input type="text" id="name" name="name" placeholder="Mario">
@@ -17,5 +19,7 @@
 
     <button type="submit">Registrati</button>
 
-    <a href="">Hai già un account? <span class="bold">Accedi</span></a>
+    <a href="http://localhost/edusogno-esercizio/login.php">Hai già un account? <span class="bold">Accedi</span></a>
+
+
 </form>
