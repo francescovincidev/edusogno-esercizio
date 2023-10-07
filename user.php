@@ -67,12 +67,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         } else if ($userinfo) {
 
-            echo 'Ciao ' . $userinfo['name'] . $userinfo['surname'] . ' ecco i tuoi eventi';
+            echo  '<h3>Ciao ' . $userinfo['name'] . ' ' . $userinfo['surname'] . ' ecco i tuoi eventi</h3>';
 
             // STAMPIAMO GLI EVENTI
+            echo "<div class='events'>";
             foreach ($events as $event) {
-                echo $event['nome_evento'] . $event['data_evento'];
+                echo   "<div class='event'>";
+                echo "<span class='event-title'>" . $event['nome_evento'] . "</span>";
+                echo "<span class='event-date'>" . $event['data_evento'] . "</span>";
+                echo "<button>JOIN</button>";
+                echo   "</div>";
             }
+            echo "</div>";
         }
     } else {
         // SE L'UTENTE PROVA AD ACCEDERE ALLA PAGINA SENZA REGISTRARSI O LOGGARSI

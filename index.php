@@ -1,5 +1,5 @@
 <?php require_once __DIR__ . '/section/top.php' ?>
-<div class="register">
+<div class="form-container">
     <?php
     include __DIR__ . '/layout/registration_form.php'
     ?>

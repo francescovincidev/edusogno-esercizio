@@ -94,8 +94,18 @@ body {
 
 }
 
-/* REGISTER */
-.register {
+/* COMMON */
+h3 {
+    color: #134077;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: .5rem;
+
+}
+
+.form-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -122,14 +132,10 @@ label {
 
 }
 
-
 input:focus {
     outline: none;
 
 }
-
-
-
 
 input {
     width: 100%;
@@ -155,6 +161,7 @@ button {
     color: white;
     text-transform: uppercase;
     margin: 5% 0;
+    cursor: pointer;
 }
 
 a {
@@ -170,4 +177,32 @@ a {
 .errors {
     color: red;
     font-size: .7rem;
+}
+
+
+/* EVENTI */
+.events {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.event {
+    border-radius: 19px;
+    border: 1px solid #134077;
+    background: white;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.event-date {
+    font-size: .8rem;
+    color: #CCC;
+    margin: 6px 0;
 }

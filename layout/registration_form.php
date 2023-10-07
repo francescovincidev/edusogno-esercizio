@@ -1,3 +1,4 @@
+<h3>Crea il tuo account</h3>
 <form action="user.php" method="post">
     <input type="hidden" name="registrazione" value="1">
 
