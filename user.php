@@ -42,28 +42,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="register">
 
     <?php
-    // SECI SONO ERRORI, VIENE RICARICATO IL FORM
-    if ($errors || $userinfo === false) {
+    // SE SI VIENE RIMANDATI IN QUESTA PAGINA TRAMITE IL FORM
+    if (isset($errors) || isset($userinfo)) {
+        // SE CI SONO ERRORI, VIENE RICARICATO IL FORM
+        if ($errors || $userinfo === false) {
 
-        if (isset($_POST['registrazione'])) {
-            include __DIR__ . '/layout/registration_form.php';
-        } elseif (isset($_POST['accesso'])) {
-            include __DIR__ . '/layout/login_form.php';
+            if (isset($_POST['registrazione'])) {
+                include __DIR__ . '/layout/registration_form.php';
+            } elseif (isset($_POST['accesso'])) {
+                include __DIR__ . '/layout/login_form.php';
+            }
+
+            echo "<div class='errors'>";
+            foreach ($errors as $error) {
+                echo "<p>$error</p>";
+            }
+            echo "</div>";
+
+            if ($userinfo === false) {
+                echo "<div class='errors'> Accesso non valido, email o password errati</div>";
+            }
+        } else if ($userinfo) {
+
+            echo 'Ciao ' . $userinfo['name'] . $userinfo['surname'] . ' ecco i tuoi eventi';
         }
-
-        echo "<div class='errors'>";
-        foreach ($errors as $error) {
-            echo "<p>$error</p>";
-        }
-        echo "</div>";
-
-        if ($userinfo === false) {
-            echo "<div class='errors'> Accesso non valido, email o password errati</div>";
-        }
-    } else if ($userinfo) {
-
-        echo 'Ciao ' . $userinfo['name'] . $userinfo['surname'] . ' ecco i tuoi eventi';
-    } ?>
+    } else {
+        // SE L'UTENTE PROVA AD ACCEDERE ALLA PAGINA SENZA REGISTRARSI O LOGGARSI
+        header('Location: http://localhost/edusogno-esercizio/');
+    }
+    ?>
 </div>
 
 <?php require_once __DIR__ . '/section/bottom.php' ?>
