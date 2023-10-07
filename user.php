@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . '/classes/User.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -39,10 +40,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+$_SESSION['newUser'] = $newUser;
 ?>
 
 <?php require_once __DIR__ . '/section/top.php' ?>
-<div class="register">
+<div class="form-container">
 
     <?php
     // SE SI VIENE RIMANDATI IN QUESTA PAGINA TRAMITE IL FORM
@@ -67,6 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         } else if ($userinfo) {
 
+
             echo  '<h3>Ciao ' . $userinfo['name'] . ' ' . $userinfo['surname'] . ' ecco i tuoi eventi</h3>';
 
             // STAMPIAMO GLI EVENTI
@@ -79,12 +82,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo   "</div>";
             }
             echo "</div>";
+
+            echo  "<a href='http://localhost/edusogno-esercizio/change_password.php'>Cambia passsowrd</a>";
         }
     } else {
         // SE L'UTENTE PROVA AD ACCEDERE ALLA PAGINA SENZA REGISTRARSI O LOGGARSI
         header('Location: http://localhost/edusogno-esercizio/');
     }
     ?>
+
+
 </div>
 
 <?php require_once __DIR__ . '/section/bottom.php' ?>
